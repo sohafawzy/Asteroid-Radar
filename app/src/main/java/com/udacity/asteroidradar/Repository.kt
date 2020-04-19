@@ -71,6 +71,7 @@ public class Repository(context: Context) {
                         }
                         asteroidDB.asteroidDao().deleteAll()
                         asteroidDB.asteroidDao().insertAll(asteroidEntities)
+                        Utils(context).hasCatcheData = true
                     }
                     return@async asteroids
                 }.await()
@@ -109,6 +110,7 @@ public class Repository(context: Context) {
                     }
                     asteroidDB.asteroidDao().deleteAll()
                     asteroidDB.asteroidDao().insertAll(asteroidEntities)
+                    Utils(context).hasCatcheData = true
                 }
             }
         }
