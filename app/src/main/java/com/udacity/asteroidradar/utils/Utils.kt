@@ -9,13 +9,13 @@ class Utils(private val context: Context) {
     private val preferences = PreferenceManager.getDefaultSharedPreferences(context)
 
 
-    var lastCacheUpdate: Long
-        get() = preferences.getLong(LAST_CACHE_UPDATE_TIMESTAMP_KEY, 0)
+    var hasCatcheData: Boolean
+        get() = preferences.getBoolean(IS_CATCHE_HAS_DATA_KEY, false)
         set(value) {
-            preferences.edit().putLong(LAST_CACHE_UPDATE_TIMESTAMP_KEY, value).apply()
+            preferences.edit().putBoolean(IS_CATCHE_HAS_DATA_KEY, value).apply()
         }
 
     companion object {
-        const val LAST_CACHE_UPDATE_TIMESTAMP_KEY = "last_cache_update_timestamp_key"
+        const val IS_CATCHE_HAS_DATA_KEY = "is_cache_has_data_key"
     }
 }

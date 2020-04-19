@@ -30,7 +30,7 @@ class MainFragment : Fragment() {
 
         setHasOptionsMenu(true)
         if (isConnected) viewModel.getPicOfDay(context!!)
-        viewModel.getAsteroid(context!!,"2020-04-18",null,isConnected)
+        viewModel.getAsteroid(context!!, isConnected)
         return binding.root
     }
 
