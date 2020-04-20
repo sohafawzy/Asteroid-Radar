@@ -32,8 +32,8 @@ public class Repository(context: Context) {
 
     suspend fun fetchFromCache() : List<Asteroid>{
          return CoroutineScope(Dispatchers.IO).async{
-            val  asteroidEntities = asteroidDB.asteroidDao().getAll()
-            val  asteroids = arrayListOf<Asteroid>()
+            val asteroidEntities = asteroidDB.asteroidDao().getAll(RequestHelper.start)
+             val asteroids = arrayListOf<Asteroid>()
             for (s in asteroidEntities){
                 asteroids.add(s.toAsteroid())
             }

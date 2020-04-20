@@ -7,8 +7,8 @@ import androidx.room.Query
 
 @Dao
 interface AsteroidRaderDao {
-    @Query("SELECT * FROM asteroid_table")
-    fun getAll(): List<AsteroidEntity>
+    @Query("SELECT * FROM asteroid_table Where closeApproachDate >= :date order by closeApproachDate")
+    fun getAll(date: String): List<AsteroidEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(asteroids: List<AsteroidEntity>)
